@@ -1,0 +1,14 @@
+{
+	"name": "gha-find-replace",
+	"version": "1.0.0",
+	"main": "main.go",
+	"repository": "https://github.com/alehechka/gha-find-replace.git",
+	"author": "Adam Lehechka <42357034+alehechka@users.noreply.github.com>",
+	"license": "MIT",
+	"scripts": {
+		"docker:build": "docker build -t alehechka/gha-find-replace:latest .",
+		"docker:images": "docker images | grep gha-find-replace",
+		"docker:scan": "docker scan alehechka/gha-find-replace:latest",
+		"test": "go test ./..."
+	}
+}

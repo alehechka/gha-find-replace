@@ -7,10 +7,12 @@ jobs:
       - uses: actions/checkout@master
       - name: Self test
         id: selftest
-
-        # Put your action repo here
-        uses: jacobtomlinson/go-container-action@master
-
-      - name: Check outputs
+        uses: alehechka/gha-find-replace@master
+        with:
+          include: 'test/'
+          find: 'world'
+          replace: 'there'
+      - name: Check outputs and modified files
         run: |
-          test "${{ steps.selftest.outputs.myOutput }}" == "Hello world"
+          test "${{ steps.selftest.outputs.modifiedFiles }}" == "1"
+          grep "Hello there" test/hello.txt
